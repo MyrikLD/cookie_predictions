@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Switcher</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            background: black;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img id="mainImage" alt="Click to change" src="images/image.jpg"/>
+</div>
+<script>
+    const images = [
+        '/images/image1.jpg',
+        '/images/image2.jpg',
+        '/images/image3.jpg',
+        '/images/image4.jpg',
+        '/images/image5.jpg',
+        '/images/image6.jpg',
+        '/images/image7.jpg',
+        '/images/image8.jpg',
+        '/images/image9.jpg',
+        '/images/image10.jpg',
+        '/images/image11.jpg'
+    ];
+
+    const img = document.getElementById('mainImage');
+    let clicked = false;
+
+    img.addEventListener('click', () => {
+        if (!clicked) {
+            img.src = images[Math.floor(Math.random() * images.length)];
+            clicked = true;
+        }
+    });
+</script>
+</body>
+</html>
